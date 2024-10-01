@@ -33,12 +33,33 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         item.addEventListener("mouseover", function () {
-            const imgSrc = `./assets/img${i + 1}.jpg`;
-            const img = document.createElement("img");
-            img.src = imgSrc;
-            img.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
-            cursor.appendChild(img);
-            
+   // 이미지와 텍스트를 감싸는 div 생성
+   const imgContainer = document.createElement("div");
+   imgContainer.style.display = "flex"; // flexbox 사용
+   imgContainer.style.alignItems = "flex-end"; // 수직 아래 정렬
+   imgContainer.style.pointerEvents = "none"; // 마우스 이벤트 차단
+   imgContainer.style.marginLeft = "10px"; // 이미지와 텍스트 간의 간격 조정
+
+   const imgSrc = `./assets/img${i + 1}.jpg`;
+   const img = document.createElement("img");
+   img.src = imgSrc;
+   img.style.width = "300px"; // 이미지 너비 조정
+   img.style.height = "auto"; // 비율 유지
+   img.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
+
+   // 새로운 텍스트 추가
+   const newText = document.createElement("p");
+   newText.textContent = "작품이름ㅣ이름"; // 원하는 텍스트 설정
+   newText.style.width = "300px";
+   newText.style.color = "#fff"; // 텍스트 색상
+   newText.style.marginLeft = "1100px"; // 이미지와 텍스트 간의 간격 조정
+   newText.style.alignSelf = "flex-end"; // 텍스트 수직 아래 정렬
+
+   // 컨테이너에 이미지와 텍스트 추가
+   imgContainer.appendChild(img);
+   imgContainer.appendChild(newText);
+   cursor.innerHTML = ''; // 기존 내용을 비우고
+   cursor.appendChild(imgContainer); // cursor에 이미지와 텍스트 추가
 
             gsap.to(img, {
                 clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
