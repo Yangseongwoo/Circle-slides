@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
    const imgSrc = `./assets/img${i + 1}.jpg`;
    const img = document.createElement("img");
    img.src = imgSrc;
-   img.style.width = "300px"; // 이미지 너비 조정
-   img.style.height = "auto"; // 비율 유지
+/*    img.style.width = "300px"; // 이미지 너비 조정
+   img.style.height = "auto"; // 비율 유지 */
    img.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
 
    // 새로운 텍스트 추가
