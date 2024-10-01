@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             img.src = imgSrc;
             img.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
             cursor.appendChild(img);
+            
 
             gsap.to(img, {
                 clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
