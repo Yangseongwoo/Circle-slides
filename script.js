@@ -69,20 +69,28 @@ document.addEventListener("DOMContentLoaded", function () {
             imgContainer.style.display = "flex"; // flexbox 사용
             imgContainer.style.alignItems = "flex-end"; // 수직 아래 정렬
             imgContainer.style.pointerEvents = "none"; // 마우스 이벤트 차단
-            imgContainer.style.marginLeft = "10px"; // 이미지와 텍스트 간의 간격 조정
+            imgContainer.style.marginTop = "20px";
+            imgContainer.style.marginLeft = "900px"; // 이미지와 텍스트 간의 간격 조정
+            imgContainer.style.width = "300px"; // 이미지 너비 조정
 
             const imgSrc = `./assets/img${i + 1}.jpg`;
             const img = document.createElement("img");
             img.src = imgSrc;
             img.style.width = "300px"; // 이미지 너비 조정
             img.style.height = "auto"; // 비율 유지
-            img.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
+            img.style.clipPath = "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)";
+
+            // 이미지를 로드한 후 텍스트 위치 조정
+            img.onload = () => {
+                const imgHeight = img.offsetHeight;
+                newText.style.marginTop = `${imgHeight}px`; // 이미지의 높이에 따라 텍스트 위치 조정
+            };
 
             // 새로운 텍스트 추가
             const newText = document.createElement("p");
             newText.textContent = `${interiors[i].name} | 이름`; // 원하는 텍스트 설정
             newText.style.color = "#fff"; // 텍스트 색상
-            newText.style.marginLeft = "1100px"; // 이미지와 텍스트 간의 간격 조정
+            newText.style.marginLeft = "10px"; // 이미지와 텍스트 간의 간격 조정
             newText.style.alignSelf = "flex-end"; // 텍스트 수직 아래 정렬
 
             // 컨테이너에 이미지와 텍스트 추가
@@ -164,3 +172,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
