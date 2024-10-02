@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // 항목의 글씨 크기 작게 설정
-        p.style.fontSize = "16px"; // 기본 글씨 크기
+        p.style.fontSize = "40px"; // 기본 글씨 크기
 
         item.addEventListener("mouseover", function () {
             // 모든 항목의 스타일을 초기화
